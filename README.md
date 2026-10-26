@@ -76,7 +76,13 @@ dotnet run --project RaceDay.MVC/RaceDay.MVC.csproj --launch-profile http
 
 MVC is configured for `http://localhost:5220` (HTTP profile) or `https://localhost:7220` (HTTPS profile). The checked-in `RaceDay.MVC/appsettings.json` points to `https://localhost:7170/`, so the API must be running with its **https** profile. Start both API and MVC together with Visual Studio Multiple Startup Projects, or keep the API terminal running while starting MVC in a second terminal.
 
+## Build and test
 
+```powershell
+dotnet restore
+dotnet build
+dotnet test
+```
 
 Record the actual output from your own machine for submission evidence. Do not claim that GitHub Actions passed unless the latest run in the repository shows a green check.
 
