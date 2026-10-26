@@ -26,7 +26,11 @@ Architecture: `Browser → RaceDay.MVC → RaceDay.API → SQL Server`, with ima
 - Docker Desktop for the container step.
 - An Azure Storage account to test real image uploads.
 
+## Configure the API database
 
+Check `RaceDay.API/appsettings.json`. The default connection string uses Windows SQL Server LocalDB. Change it if your SQL Server instance differs. Never commit real passwords or Azure connection strings to GitHub. Use user secrets or environment variables for private settings.
+
+The API applies the checked-in EF Core migrations automatically at startup, before demo seeding runs. This is important for a newly created, empty `RaceDay` database: the database must have its tables created before `SeedData` queries `Users`.
 
 From the solution root, run:
 
