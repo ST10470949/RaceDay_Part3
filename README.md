@@ -129,3 +129,15 @@ These tasks require your own Windows/Visual Studio account, Azure subscription, 
 - If the port is false, the API is stopped or listening on a different profile/port. Check the API Output window for its `Now listening on:` line.
 - If the API starts but reports a database error, check the connection string and migrations before starting MVC. The MVC application must not connect directly to SQL Server.
 - If Azure upload fails while browsing events works, configure the Azure Storage connection string in the API and retry the upload.
+
+## Docker Evidence
+<img width="1917" height="1013" alt="image" src="https://github.com/user-attachments/assets/bc048ffb-6efa-4bc0-b2b5-8fa5cf6f617e" /> 
+
+## Azure Blob Evidence
+### Link: https://portal.azure.com/#home
+<img width="1917" height="915" alt="image" src="https://github.com/user-attachments/assets/31bfe7bf-c6b4-4718-9232-e1fe585e945c" />
+<img width="1912" height="923" alt="image" src="https://github.com/user-attachments/assets/dc765ddf-32fa-43e1-957a-7771a9784442" />
+
+
+
+
