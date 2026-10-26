@@ -112,7 +112,18 @@ Workflow: `.github/workflows/dotnet-ci.yml`. It restores, builds, and tests the 
 The Part 2 database SQL, ERD, endpoint plan, and implementation notes are included under `Documentation/Part2/` to show how the Part 3 UI maps to the API and database design.
 
 
+## Manual actions still required before submission
 
+These tasks require your own Windows/Visual Studio account, Azure subscription, GitHub repository, and video. They cannot be honestly marked complete from a source ZIP alone.
+
+1. **Build and test locally:** start `MSSQLLocalDB`, run `dotnet restore`, `dotnet build`, and `dotnet test`. Fix any errors shown by your local SDK before submission.
+2. **Start the API first:** use the `https` profile (`https://localhost:7170/swagger`) because `RaceDay.MVC/appsettings.json` points to that address. Verify the API stays running, then start MVC. In Visual Studio use Solution > Configure Startup Projects > Multiple startup projects and set `RaceDay.API` and `RaceDay.MVC` to Start, `RaceDay.Tests` to None.
+3. **Test all features with real data:** register and log in as both Organiser and Participant; create/edit/delete an event; add a category; enrol; view enrolments; capture results; verify profile updates and logout/protected-page redirects.
+4. **Azure setup:** create/choose an Azure Storage account and configure `AzureBlobStorage:ConnectionString` as a user secret/environment variable. Test event banner and profile picture upload and verify that returned blob URLs are stored and displayed. Never commit the connection string.
+5. **Docker:** keep the API running on the host's HTTP profile (`http://localhost:5170`) for the included Docker command. Build with `docker build -t raceday-mvc -f RaceDay.MVC/Dockerfile .`, then run `docker run --rm -p 8080:8080 -e ApiSettings__BaseUrl=http://host.docker.internal:5170/ raceday-mvc`. Test the website at `http://localhost:8080`. LocalDB remains on the host; the API must be reachable from the container.
+6. **GitHub:** push the final work to your Part 3 branch; make at least 20 meaningful commits over your actual development work (do not create fake commits just to satisfy the count); verify the latest GitHub Actions workflow is green. Save a genuine screenshot of the green build.
+7. **Video and ARC:** record a clear demo of the app, role-specific pages, API-backed operations, Azure upload, and Docker. Add the actual video URL to this README and submit the GitHub link/video/evidence on ARC as your lecturer requires.
+8. **Security review:** use a strong local secret for Azure, do not publish real credentials, and confirm the role checks are enforced by the API—not only hidden navigation links.
 
 ## Local troubleshooting
 
