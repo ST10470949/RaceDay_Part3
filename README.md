@@ -1,8 +1,4 @@
-# RaceDay — Part 3: MVC Front End, Azure Blob Storage and Docker
 
-**Module:** PROG6212 — Programming 2B  
-**Student:** Abongile Lathitha Manqana  
-**Student number:** ST10470949
 
 ## What this solution contains
 
